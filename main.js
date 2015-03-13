@@ -24,10 +24,9 @@ define(function (require, exports, module) {
             return false;
         }
 
-        var _correction = ( Math.abs(zoom_delta) == 100 )? 1 : 0.5;
-
         // Guaranteed to work by the validation above.
         var fsUnits = fsStyle.substring(fsStyle.length - 2, fsStyle.length),
+            _correction = ( Math.abs(zoom_delta) == 100 )? 1 : 0.5,
             delta   = fsUnits === "px" ? 1 : 0.1,
             fsOld   = parseFloat(fsStyle.substring(0, fsStyle.length - 2)),
             //            fsNew   = fsOld + (delta * adjustment),

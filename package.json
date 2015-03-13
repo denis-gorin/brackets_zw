@@ -1,0 +1,12 @@
+{
+  "name": "brackets-zw",
+  "title": "Zooming wheel",
+  "description": "Increase / Decrease Font Size with the Mouse Wheel",
+  "version": "0.1.0",
+  "keywords": ["js, javascript, edit, editing"],
+  "author": "DG",
+  "homepage": "https://github.com/denis-gorin",
+  "engines": {
+    "brackets": ">=0.31.0"
+  }
+}

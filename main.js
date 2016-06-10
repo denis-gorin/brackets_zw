@@ -32,30 +32,27 @@ define(function (require, exports, module) {
             //            fsNew   = fsOld + (delta * adjustment),
             fsNew   = fsOld + ( (-zoom_delta * 0.01 * delta) * _correction ),
             fsStr   = fsNew + fsUnits;
-
         // Don't let the font size get too small or too large. The minimum font size is 1px or 0.1em
         // and the maximum font size is 72px or 7.2em depending on the unit used
         if (fsNew < MIN_FONT_SIZE * delta || fsNew > MAX_FONT_SIZE * delta) {
             return false;
         }
-
-        if ( Math.abs(zoom_delta) == 100 )
-        {
-            if (wheelCounter%2==0){   		
-                ViewCommandHandlers.setFontSize(fsStr);
-            }			
-        }
-        else
-        {			
+//        if ( Math.abs(zoom_delta) == 100 )
+//        {
+//            if (wheelCounter%2==0){
+//                ViewCommandHandlers.setFontSize(fsStr);
+//            }
+//        }
+//        else
+//        {
             ViewCommandHandlers.setFontSize(fsStr);
-        }
+//        }
         return true;
     }
     
     var wheelHandler = function(e){
-
         if (e.ctrlKey || e.metaKey) { // Windows, OSX (cmd key)
-            var fontSize = parseInt(ViewCommandHandlers.getFontSize());
+//            var fontSize = parseInt(ViewCommandHandlers.getFontSize());
             var zoom_delta = (typeof e.deltaY !='undefined') ? e.deltaY : e.originalEvent.deltaY  ;
             var adjustment = (zoom_delta < 0) ? 1 : -1;
             wheelCounter += adjustment;
@@ -64,8 +61,8 @@ define(function (require, exports, module) {
     }
 
     AppInit.appReady(function () {
-        document.removeEventListener("wheel");
-        document.addEventListener("wheel", wheelHandler, true);
+//        document.body.removeEventListener("wheel");
+        document.body.addEventListener("wheel", wheelHandler, true);
     });
 
 });
